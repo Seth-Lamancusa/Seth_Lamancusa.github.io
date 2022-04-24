@@ -1,12 +1,105 @@
+class Keyboard {
+	
+	constructor(keySize, x, y) {
+		
+		this.keySize = keySize;
+		this.x = x;
+		this.y = y;
+		
+		this.keyUpColor = 200;
+		this.keyDownColor = 100;
+		
+		this.pressed = new Array(26);
+		this.pressed.fill(false);
+		
+		this.numbers = new Array(26);
+		for (let i = 0; i < 26; i++) {
+			this.numbers[i] = i + 1;
+		}
+		Keyboard.shuffle(this.numbers);
+		
+		this.expectedNext = 1
+		
+	}
+	
+	static drawKey(kbX, kbY, row, position, character, color) {
+	
+		let rowOffsets = [0, 2 * keySize / 7, keySize];
+		
+		noFill();
+		strokeWeight(2);
+		stroke(color);
+		rect(kbX + rowOffsets[row] + position * (keySize + keySize / 7), kbY + row * (keySize + keySize / 7), keySize, keySize);
+		
+		textSize(keySize / 2);
+		text(character, kbX + rowOffsets[row] + position * (keySize + keySize / 7) + 2 * keySize / 7, kbY + row * (keySize + keySize / 7) + 5 * keySize / 7);
+		
+	}
+	
+	static shuffle(array) {
+		let currentIndex = array.length,  randomIndex;
+
+		// While there remain elements to shuffle.
+		while (currentIndex != 0) {
+
+			// Pick a remaining element.
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex--;
+
+			// And swap it with the current element.
+			[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+		}
+
+		return array;
+	}
+	
+	draw() {
+	
+		for (let i = 0; i < 10; i++) {
+			if (this.pressed[i]) {
+				Keyboard.drawKey(this.x, this.y, 0, i, this.numbers[i], this.keyDownColor);
+			} else {
+				Keyboard.drawKey(this.x, this.y, 0, i, this.numbers[i], this.keyUpColor);
+			}
+		}
+		for (let i = 0; i < 9; i++) {
+			if (this.pressed[10 + i]) {
+				Keyboard.drawKey(this.x, this.y, 1, i, this.numbers[10 + i], this.keyDownColor);
+			} else {
+				Keyboard.drawKey(this.x, this.y, 1, i, this.numbers[10 + i], this.keyUpColor);
+			}
+		}
+		for (let i = 0; i < 7; i++) {
+			if (this.pressed[19 + i]) {
+				Keyboard.drawKey(this.x, this.y, 2, i, this.numbers[19 + i], this.keyDownColor);
+			} else {
+				Keyboard.drawKey(this.x, this.y, 2, i, this.numbers[19 + i], this.keyUpColor);
+			}
+		}
+	
+	}
+	
+	updateState(inputs) {
+		for (let i = 0; i < 26; i++) {
+			if (inputs[i] && this.numbers[i] == this.expectedNext) {
+				this.pressed[i] = true;
+				this.expectedNext++;
+			}
+		}
+	}
+	
+}
+
+
+
+
+
 let canvasWidth = 720;
 let canvasHeight = 480;
 
 let keySize = 50;
-let kbX = 75;
-let kbY = 75;
 
-keyUpColor = 200;
-keyDownColor = 100;
+let k = new Keyboard(keySize, 50, 50);
 
 function setup() {
 	
@@ -20,137 +113,25 @@ function draw() {
 	
 	let inputs = getUserInput();
 	
-	drawKeyboard(kbX, kbY, inputs);
-
+	k.updateState(inputs);
+	k.draw();
 	
 }
 
-function drawKey(kbX, kbY, row, position, letter, color) {
-	
-	let rowOffsets = [kbX, kbX + 2 * keySize / 7, kbX + keySize];
-	
-	noFill();
-	strokeWeight(2);
-	stroke(color);
-	rect(rowOffsets[row] + position * (keySize + keySize / 7), kbY + row * (keySize + keySize / 7), keySize, keySize);
-	
-	textSize(keySize / 2);
-	text(letter, rowOffsets[row] + position * (keySize + keySize / 7) + 2 * keySize / 7, kbY + row * (keySize + keySize / 7) + 5 * keySize / 7);
-	
-}
 
-function drawKeyboard(x, y, inputs) {
-	
-	let letters = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'];
-	
-	for (let i = 0; i < 10; i++) {
-		if (inputs[i]) {
-			drawKey(x, y, 0, i, letters[i], keyDownColor);
-		} else {
-			drawKey(x, y, 0, i, letters[i], keyUpColor);
-		}
-	}
-	
-	for (let i = 0; i < 9; i++) {
-		if (inputs[10 + i]) {
-			drawKey(x, y, 1, i, letters[10 + i], keyDownColor);
-		} else {
-			drawKey(x, y, 1, i, letters[10 + i], keyUpColor);
-		}
-	}
-	
-	for (let i = 0; i < 7; i++) {
-		if (inputs[19 + i]) {
-			drawKey(x, y, 2, i, letters[19 + i], keyDownColor);
-		} else {
-			drawKey(x, y, 2, i, letters[19 + i], keyUpColor);
-		}
-	}
-	
-}
+
+
 
 function getUserInput() {
 	
+	let keycodes = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76, 90, 88, 67, 86, 66, 78, 77];
 	let inputs = new Array(26);
 	inputs.fill(false);
 	
-	if (keyIsDown(81)) {
-		inputs[0] = true;
-	}
-	if (keyIsDown(87)) {
-		inputs[1] = true;
-	}
-	if (keyIsDown(69)) {
-		inputs[2] = true;
-	}
-	if (keyIsDown(82)) {
-		inputs[3] = true;
-	}
-	if (keyIsDown(84)) {
-		inputs[4] = true;
-	}
-	if (keyIsDown(89)) {
-		inputs[5] = true;
-	}
-	if (keyIsDown(85)) {
-		inputs[6] = true;
-	}
-	if (keyIsDown(73)) {
-		inputs[7] = true;
-	}
-	if (keyIsDown(79)) {
-		inputs[8] = true;
-	}
-	if (keyIsDown(80)) {
-		inputs[9] = true;
-	}
-	if (keyIsDown(65)) {
-		inputs[10] = true;
-	}
-	if (keyIsDown(83)) {
-		inputs[11] = true;
-	}
-	if (keyIsDown(68)) {
-		inputs[12] = true;
-	}
-	if (keyIsDown(70)) {
-		inputs[13] = true;
-	}
-	if (keyIsDown(71)) {
-		inputs[14] = true;
-	}
-	if (keyIsDown(72)) {
-		inputs[15] = true;
-	}
-	if (keyIsDown(74)) {
-		inputs[16] = true;
-	}
-	if (keyIsDown(75)) {
-		inputs[17] = true;
-	}
-	if (keyIsDown(76)) {
-		inputs[18] = true;
-	}
-	if (keyIsDown(90)) {
-		inputs[19] = true;
-	}
-	if (keyIsDown(88)) {
-		inputs[20] = true;
-	}
-	if (keyIsDown(67)) {
-		inputs[21] = true;
-	}
-	if (keyIsDown(86)) {
-		inputs[22] = true;
-	}
-	if (keyIsDown(66)) {
-		inputs[23] = true;
-	}
-	if (keyIsDown(78)) {
-		inputs[24] = true;
-	}
-	if (keyIsDown(77)) {
-		inputs[25] = true;
+	for (let i = 0; i < 26; i++) {
+		if (keyIsDown(keycodes[i])) {
+			inputs[i] = true;
+		}
 	}
 	
 	return inputs;
