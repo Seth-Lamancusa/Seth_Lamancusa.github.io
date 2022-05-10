@@ -4,16 +4,27 @@ class Keyboard {
 		
 		this.state = 0;
 		this.time = 0;
+		this.mistakes = 0;
 		this.keySize = keySize;
+		this.altKeySize = this.keySize * 1.3;
 		
 		this.keyUpColor = 200;
 		this.keyDownColor = 100;
+		this.mistakeColor = "#ff0000";
+		this.mistakeDownColor = "#884444";
 		
+		this.isDown = new Array(28);
+		this.prevDown = new Array(28);
+		
+		this.keyColors = new Array(26);
+		this.keyColors.fill(this.keyUpColor);
 		this.pressed = new Array(26);
-		this.isDown = new Array(27);
-		
-		this.keyContent = new Array(27);
+		this.pressed.fill(false);
+		this.immune = new Array(26);
+		this.immune.fill(false);
+		this.keyContent = new Array(28);
 		this.keyContent.fill('');
+		
 		this.keyContent[13] = '1';
 		this.keyContent[14] = '-';
 		this.keyContent[15] = '2';
@@ -28,7 +39,7 @@ class Keyboard {
 		noFill();
 		strokeWeight(2);
 		stroke(color);
-		rect(kbX + offsetX, kbY + offsetY, w, h);
+		rect(kbX + offsetX, kbY + offsetY, w, h, 7);
 		
 		textSize(keySize / 2);
 		textFont("Courier New");
@@ -60,89 +71,92 @@ class Keyboard {
 		Keyboard.shuffle(numbers);
 		
 		this.state = 1;
-		this.pressed = new Array(26);
 		this.keyContent = numbers;
 	}
 	
 	draw(x, y) {
 		
-		let rowOffsets = [0, 2 * keySize / 7, keySize];
+		let rowOffsets = [0, 2 * this.keySize / 7, this.keySize, this.keySize * 1.6];
 		
 		/* draws row 1 of letter keys */
 		for (let i = 0; i < 10; i++) {
-			if (this.pressed[i]) {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize, 
-					rowOffsets[0] + i * (this.keySize + this.keySize / 7), 0, 
-					this.keyContent[i], this.keyDownColor);
-			} else {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize, 
-					rowOffsets[0] + i * (this.keySize + this.keySize / 7), 0, 
-					this.keyContent[i], this.keyUpColor);
-			}
+			Keyboard.drawKey(x, y, this.keySize, this.keySize, 
+				rowOffsets[0] + i * (this.keySize + this.keySize / 7), 0, 
+				this.keyContent[i], this.keyColors[i]);
 		}
 		/* draws row 2 of letter keys */
 		for (let i = 0; i < 9; i++) {
-			if (this.pressed[10 + i]) {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize, 
-					rowOffsets[1] + i * (this.keySize + this.keySize / 7), this.keySize + this.keySize / 7, 
-					this.keyContent[10 + i], this.keyDownColor);
-			} else {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize, 
-					rowOffsets[1] + i * (this.keySize + this.keySize / 7), this.keySize + this.keySize / 7,  
-					this.keyContent[10 + i], this.keyUpColor);
-			}
+			Keyboard.drawKey(x, y, this.keySize, this.keySize, 
+				rowOffsets[1] + i * (this.keySize + this.keySize / 7), this.keySize + this.keySize / 7, 
+				this.keyContent[10 + i], this.keyColors[10 + i]);
 		}
 		/* draws row 3 of letter keys */
 		for (let i = 0; i < 7; i++) {
-			if (this.pressed[19 + i]) {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize, 
-					rowOffsets[2] + i * (this.keySize + this.keySize / 7), 2 * (this.keySize + this.keySize / 7), 
-					this.keyContent[19 + i], this.keyDownColor);
-			} else {
-				Keyboard.drawKey(x, y, this.keySize, this.keySize,
-					rowOffsets[2] + i * (this.keySize + this.keySize / 7), 2 * (this.keySize + this.keySize / 7), 
-					this.keyContent[19 + i], this.keyUpColor);
-			}
+			Keyboard.drawKey(x, y, this.keySize, this.keySize, 
+				rowOffsets[2] + i * (this.keySize + this.keySize / 7), 2 * (this.keySize + this.keySize / 7), 
+				this.keyContent[19 + i], this.keyColors[19 + i]);
 		}
 		
 		/* draws space bar */
-		if (this.state == 0) {
-			Keyboard.drawKey(x, y, (this.keySize + this.keySize / 7) * 6, this.keySize,
-				this.keySize * 2.65, 3 * (this.keySize + this.keySize / 7),
-				"start", this.keyUpColor);
-		} else {
-			Keyboard.drawKey(x, y, (this.keySize + this.keySize / 7) * 6, this.keySize,
-				this.keySize * 2.65, 3 * (this.keySize + this.keySize / 7),
-				(Math.round(this.time / 60 * 100) / 100).toFixed(2), this.keyUpColor);
-		}
+		this.keyContent[27] = this.state == 0 ? "start" : (Math.round(this.time / 60 * 100) / 100).toFixed(2);
+		Keyboard.drawKey(x, y, (this.keySize + this.keySize / 7) * 6, this.keySize,
+			rowOffsets[3] + this.altKeySize + this.keySize / 7, 3 * (this.keySize + this.keySize / 7),
+			this.keyContent[27], this.keyUpColor);
+		
+		/* draws left alt */
+		this.keyContent[28] = this.mistakes;
+		Keyboard.drawKey(x, y, this.altKeySize, this.keySize,
+			rowOffsets[3], 3 * (this.keySize + this.keySize / 7),
+			this.keyContent[28], this.keyUpColor);
 	
 	}
 	
 	update(inputs) {
+		
+		this.prevDown = this.isDown;
 		this.isDown = inputs;
 		
-		for (let i = 0; i < 26; i++) {
-			if (this.state != 0 && inputs[i] && this.keyContent[i] == this.expectedNext) {
-				this.pressed[i] = true;
-				this.expectedNext++;
-			}
-		}
 		
-		if (this.isDown[26]) {
-			if (this.state == 0) {
-				this.start();
-			}
-		}
-		
-		if (this.state == 1) {
-			this.time++;
-		} else if (this.state == 2) {
+		switch (this.state) {
+			case 0:
 			
+				if (this.isDown[26]) {
+					this.start();
+				}
+				
+				break;
+			case 1:
+			
+				this.time++;
+				for (let i = 0; i < 26; i++) {
+					if (this.isDown[i]) {
+						if (this.keyContent[i] == this.expectedNext) {
+							this.pressed[i] = true;
+							this.immune[i] = true;
+							this.keyColors[i] = this.keyDownColor;
+							this.expectedNext++;
+						} else if (!this.immune[i]) {
+							this.keyColors[i] = this.pressed[i] ? this.mistakeDownColor : this.mistakeColor;
+							if (!this.prevDown[i]) {
+								this.mistakes++;	
+							}
+						}
+					} else {
+						this.keyColors[i] = this.pressed[i] ? this.keyDownColor : this.keyUpColor;
+						this.immune[i] = false;
+					}
+				}
+				
+				break;
+			case 2:
+				
+				break;
 		}
 		
 		if (this.expectedNext == 27) {
 			this.state = 2;
 		}
+		
 	}
 	
 }
