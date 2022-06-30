@@ -12,25 +12,43 @@
 <body>
 	<nav id="side_nav">
 		<img src="images/logo.png" alt="personal brand image">
-		<ul>
-			<li><a href="javascript:;">Cool link</a></li>
-			<li><a href="javascript:;">Another cool link</a></li>
-			<li><a href="javascript:;">One more</a></li>
-		</ul>
+		<a href="javascript:;">Cool link</a>
+		<a href="javascript:;">Another cool link</a>
+		<a href="javascript:;">One more</a>
 	</nav>
 
 	<nav id="top_nav">
-		<a href="javascript:;">Article</a>
-		<a href="javascript:;">Projects</a>
-		<a href="javascript:;">Blog</a>
+		<a href="javascript:;" onClick="slide('article')">Article</a>
+		<a href="javascript:;" onClick="slide('projects')">Projects</a>
+		<a href="javascript:;" onClick="slide('blog')">Blog</a>
 	</nav>
 
+	<div id="nav_cover"></div>
+
 	<div id="content">
-		<h1>Seth Lamancusa</h1>
-		<hr>
-		<p>Stay tuned and check out <a href="https://www.26quick.com" target="blank">the project I'm currently working
-				on</a>.</p>
+		<div class="pages">
+
+			<div class="page one">
+				<h1>Seth Lamancusa
+					<hr>
+				</h1>
+				<p>Stay tuned and check out <a href="https://www.26quick.com" target="blank">the project I'm currently
+						working on</a>.</p>
+			</div>
+
+			<div class="page two">
+				<h1>Page 2</h1>
+			</div>
+
+			<div class="page three">
+				<h1>Page 3</h1>
+			</div>
+
+		</div>
 	</div>
+
+	<script src="scripts/pageTransitions.js"></script>
+
 </body>
 
 </hr width="100%">
