@@ -88,7 +88,6 @@ video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 
@@ -105,10 +104,6 @@ menu,
 nav,
 section {
 	display: block;
-}
-
-body {
-	line-height: 1;
 }
 
 ol,
@@ -134,12 +129,13 @@ table {
 	border-spacing: 0;
 }
 
-
+/* End of CSS Reset */
 
 body {
 	background-color: #F8F8F8;
 	font-family: sans-serif;
 	z-index: 0;
+	overflow-x: hidden;
 }
 
 a {
@@ -155,11 +151,22 @@ h1 {
 	color: black;
 	font-size: xx-large;
 	font-family: serif;
+	font-weight: normal;
+	margin: 0;
 }
 
 p {
 	color: black;
-	font-size: medium;
+	font-size: .875em;
+	line-height: 1.6;
+	margin-top: .6em;
+	width: 90%;
+}
+
+p.subtitle {
+	color: rgb(100, 100, 100);
+	font-size: .8em;
+	margin-top: -4px;
 }
 
 hr {
@@ -191,16 +198,16 @@ hr {
 }
 
 #top_nav {
+	box-sizing: border-box;
 	position: absolute;
 	left: 175px;
 	top: 35px;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
+	height: 40px;
+	width: calc(100vw - 175px);
+	display: block;
 }
 
-#top_nav>a {
+#top_nav a.tab {
 	box-sizing: border-box;
 	height: 40px;
 	padding: 7px;
@@ -210,13 +217,30 @@ hr {
 	border-left: 1px solid #bbd4ff;
 	border-image: linear-gradient(#f8f8f8, #bbd4ff) 1;
 	z-index: 1;
-	/* no right border? */
 }
 
-#top_nav:nth-child(2) {
+#top_nav>* {
+	box-sizing: border-box;
+	display: flex;
+	position: absolute;
+}
+
+#top_nav>.group1 {
+	top: 0;
+	left: 0;
 	border-right: 1px solid #bbd4ff;
 	border-image: linear-gradient(#f8f8f8, #bbd4ff) 1;
 }
+
+#top_nav>.group2 {
+	right: 25px;
+}
+
+#top_nav>.group2>form input[type="text"] {
+	width: 250px;
+}
+
+#top_nav>.group2>form svg {}
 
 #content {
 	position: relative;
