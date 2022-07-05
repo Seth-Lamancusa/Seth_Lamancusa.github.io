@@ -2,7 +2,7 @@ const pages = document.querySelectorAll(".page");
 const buttons = document.querySelectorAll("#top_nav a");
 let t = 0;
 
-buttons[0].style.background = "linear-gradient(#f8f8f8, white)";
+buttons[0].style.background = "linear-gradient(#f8f9fa, white)";
 buttons[0].style.height = "41px";
 
 slide = (page) => {
@@ -22,10 +22,10 @@ slide = (page) => {
     );
     buttons.forEach(
         function (b) {
-            b.style.background = "linear-gradient(#f8f8f8, #ebf0ff)";
+            b.style.background = "linear-gradient(#f8f9fa, #ebf0ff)";
             b.style.height = "40px";
         }
     );
-    buttons[t].style.background = "linear-gradient(#f8f8f8, white)";
+    buttons[t].style.background = "linear-gradient(#f8f9fa, white)";
     buttons[t].style.height = "41px";
 };
