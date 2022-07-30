@@ -24,9 +24,9 @@
 			<a class="tab" href="javascript:;" onClick="slide('blog')">Blog</a>
 		</div>
 		<div class="group2">
-			<form>
-				<input type="text" placeholder="Send an anonymous note!">
-				<a href="">
+			<form action="https://formspree.io/f/xayvzrdb" method="POST">
+				<input type="text" placeholder="Send an anonymous note!" name="note" required></input>
+				<a href="javascript:{}" onclick="document.querySelector('.group2 form').submit(); return false;">
 					<svg width="25px" height="25px" version="1.1" xmlns="http://www.w3.org/2000/svg"
 						xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 351.454 351.454"
 						xml:space="preserve">
@@ -124,20 +124,17 @@
 				<hr>
 				<p class="subtitle">From the convolutions of his mind</p>
 
-				<table id="infobox">
-					<tbody>
-						<tr>
-							<th>Seth M. Lamancusa</th>
-						</tr>
-						<tr>
-							<td><img src="images/infobox.jpg" alt="image of Seth"></td>
-						</tr>
-					</tbody>
-				</table>
+				<div id="infobox">
+					<h1>Seth M. Lamancusa</h1>
+					<img src="images/infobox.jpg" alt="image of Seth">
+					<p>Seth in 2021</p>
+					<h2>Personal details</h2>
+					<p></p>
+				</div>
 
 				<p><b>Seth Lamancusa</b> (Born October 7, 2002) is a Data Analytics major attending The Ohio State
-					University pursuing a Cognitive Science minor interested in AI research, the philosophy of the mind,
-					and ripping fat clouds. He also just made a personal website.</p>
+					University pursuing a Cognitive Science minor. He's interested in AI research, the philosophy of the
+					mind, and ripping fat clouds. He also just made a website.</p>
 				<p>Stay tuned and check out <a href="https://www.26quick.com" target="blank">the project I'm currently
 						working on</a>.</p>
 			</div>

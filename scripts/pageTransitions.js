@@ -1,5 +1,5 @@
 const pages = document.querySelectorAll(".page");
-const buttons = document.querySelectorAll("#top_nav a");
+const buttons = document.querySelectorAll("#top_nav a.tab");
 let t = 0;
 
 buttons[0].style.background = "linear-gradient(#f8f9fa, white)";
