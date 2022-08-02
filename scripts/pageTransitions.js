@@ -16,6 +16,9 @@ slide = (page) => {
         case 'blog':
             t = 2;
             break;
+        case 'library':
+            t = 3;
+            break;
     }
     pages.forEach(
         page => (page.style.transform = `translateX(${-t * 100}%)`)
