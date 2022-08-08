@@ -157,6 +157,7 @@ h1 {
 	font-size: xx-large;
 	font-family: serif;
 	font-weight: normal;
+	padding-bottom: 2px;
 	border-bottom: 1px solid #a2a9b1;
 	margin-bottom: 10px;
 }
@@ -185,6 +186,13 @@ p.subtitle {
 	margin-top: -4px;
 }
 
+p.sdate {
+	font-size: .875em;
+	margin-left: 2em;
+	font-style: italic;
+	margin-top: -4px;
+}
+
 #infobox {
 	float: right;
 	padding: 5px;
@@ -194,6 +202,7 @@ p.subtitle {
 	background-color: #f8f9fa;
 	display: table;
 	font-size: .9em;
+	text-align: center;
 }
 
 #infobox h1 {
@@ -213,7 +222,7 @@ p.subtitle {
 	border: none;
 	font-weight: bold;
 	font-family: sans-serif;
-	margin: 0;
+	margin: 5px 0;
 }
 
 #infobox img {
@@ -225,6 +234,19 @@ p.subtitle {
 #infobox p {
 	text-align: center;
 	margin: 0;
+}
+
+#infobox p.lcol {
+	font-weight: bold;
+	width: 25%;
+	display: inline-block;
+	text-align: left;
+}
+
+#infobox p.rcol {
+	width: 70%;
+	display: inline-block;
+	text-align: left;
 }
 
 #contents {
@@ -340,4 +362,33 @@ p.subtitle {
 	padding: 20px;
 	padding-right: 50px;
 	transition: all 0.7s;
+	overflow: hidden;
+}
+
+footer {
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+footer p {
+	font-size: .75em;
+	color: gray;
+}
+
+footer li {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	height: 25px;
+	margin: 4px;
+}
+
+footer li>p {
+	display: inline;
+}
+
+footer svg {
+	display: inline;
+	margin: 2px;
 }
