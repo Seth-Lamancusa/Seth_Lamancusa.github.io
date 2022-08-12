@@ -193,6 +193,21 @@ p.sdate {
 	margin-top: -4px;
 }
 
+span.quote {
+	font-style: italic;
+	font-size: 1.2em;
+	color: #555;
+}
+
+.construction {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 40%;
+	top: 125px;
+	transform: rotate(20deg);
+}
+
 #infobox {
 	float: right;
 	padding: 5px;
@@ -348,6 +363,54 @@ p.sdate {
 	overflow-x: hidden;
 }
 
+.page.four ul {
+	list-style: none;
+}
+
+.page.four ul.genres>li>p {
+	text-align: center;
+	font-weight: bold;
+}
+
+.page.four ul.books {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-items: baseline;
+}
+
+.page.four ul.books>li {
+	display: inline-block;
+	text-align: center;
+	width: 10em;
+}
+
+.page.four ul.books>li>img.cover {
+	margin: auto;
+	padding: 0;
+	height: 128px;
+}
+
+.page.four ul.books>li>p.title,
+.page.four ul.books>li>p.author {
+	text-align: center;
+	margin: 0;
+}
+
+.page.four ul.books>li>p.author {
+	margin: 0;
+	font-size: .875em;
+}
+
+.page.four section {
+	margin-bottom: 24px;
+}
+
+.page.four section ul.genres>li:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
 .pages {
 	display: flex;
 	width: calc((100vw - 175px) * 4);
@@ -376,7 +439,8 @@ footer p {
 	color: gray;
 }
 
-footer li {
+footer li,
+footer a {
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
@@ -384,7 +448,7 @@ footer li {
 	margin: 4px;
 }
 
-footer li>p {
+footer li p {
 	display: inline;
 }
 
