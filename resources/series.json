@@ -1,0 +1,221 @@
+[
+    {
+        "title": "Dune Series",
+        "books": [
+            "Dune",
+            "Dune Messiah",
+            "Children of Dune",
+            "God Emperor of Dune",
+            "Heretics of Dune",
+            "Chapterhouse: Dune"
+        ]
+    },
+    {
+        "title": "Harry Potter Series",
+        "books": [
+            "Harry Potter and the Sorcerer's Stone",
+            "Harry Potter and the Chamber of Secrets",
+            "Harry Potter and the Prisoner of Azkaban",
+            "Harry Potter and the Goblet of Fire",
+            "Harry Potter and the Order of the Phoenix",
+            "Harry Potter and the Half-Blood Prince",
+            "Harry Potter and the Deathly Hallows"
+        ]
+    },
+    {
+        "title": "The Giver Quartet",
+        "books": [
+            "The Giver",
+            "Gathering Blue",
+            "Messenger",
+            "Son"
+        ]
+    },
+    {
+        "title": "The Chronicles of Narnia",
+        "books": [
+            "The Lion, the Witch, and the Wardrobe",
+            "Prince Caspian",
+            "The Voyage of the Dawn Treader",
+            "The Silver Chair",
+            "The Horse and His Boy",
+            "The Magician's Nephew",
+            "The Last Battle"
+        ]
+    },
+    {
+        "title": "The Inheritance Cycle",
+        "books": [
+            "Eragon",
+            "Eldest",
+            "Brisingr",
+            "Inheritance"
+        ]
+    },
+    {
+        "title": "Pendragon: Journal of an Adventure through Time and Space",
+        "books": [
+            "The Merchant of Death",
+            "The Lost City of Faar",
+            "The Never War",
+            "The Reality Bug",
+            "Black Water",
+            "The Rivers of Zadaa",
+            "The Quillan Games",
+            "The Pilgrims of Rayne",
+            "Raven Rise",
+            "The Soldiers of Halla"
+        ]
+    },
+    {
+        "title": "Morpheus Road Trilogy",
+        "books": [
+            "The Light",
+            "The Black",
+            "The Blood"
+        ]
+    },
+    {
+        "title": "Percy Jackson & the Olympians",
+        "books": [
+            "The Lightning Thief",
+            "The Sea of Monsters",
+            "The Titan's Curse",
+            "The Battle of the Labyrinth",
+            "The Last Olympian"
+        ]
+    },
+    {
+        "title": "The Heroes of Olympus",
+        "books": [
+            "The Lost Hero",
+            "The Son of Neptune",
+            "The Mark of Athena",
+            "The House of Hades",
+            "The Blood of Olympus"
+        ]
+    },
+    {
+        "title": "The Trials of Apollo",
+        "books": [
+            "The Hidden Oracle",
+            "The Dark Prophecy",
+            "The Burning Maze",
+            "The Tyrant's Tomb",
+            "The Tower of Nero"
+        ]
+    },
+    {
+        "title": "The Last Survivors",
+        "books": [
+            "Life as We Knew It",
+            "The Dead and the Gone",
+            "This World We Live In",
+            "The Shade of the Moon"
+        ]
+    },
+    {
+        "title": "The Unwanteds Series",
+        "books": [
+            "The Unwanteds",
+            "Island of Silence",
+            "Island of Fire",
+            "Island of Legends",
+            "Island of Shipwrecks",
+            "Island of Graves",
+            "Island of Dragons"
+        ]
+    },
+    {
+        "title": "The Compound Series",
+        "books": [
+            "The Compound",
+            "The Fallout"
+        ]
+    },
+    {
+        "title": "Gone Series",
+        "books": [
+            "Gone",
+            "Hunger",
+            "Lies",
+            "Plague",
+            "Fear",
+            "Light"
+        ]
+    },
+    {
+        "title": "Monster Trilogy",
+        "books": [
+            "Monster",
+            "Villian",
+            "Hero"
+        ]
+    },
+    {
+        "title": "Arc of a Scythe",
+        "books": [
+            "Scythe",
+            "Thunderhead",
+            "The Toll"
+        ]
+    },
+    {
+        "title": "Mistborn",
+        "books": [
+            "The Final Empire",
+            "The Well of Ascension",
+            "The Hero of Ages"
+        ]
+    },
+    {
+        "title": "Wax and Wayne",
+        "books": [
+            "The Alloy of Law",
+            "Shadows of Self",
+            "The Bands of Mourning",
+            "The Lost Metal"
+        ]
+    },
+    {
+        "title": "A Song of Ice and Fire",
+        "books": [
+            "A Game of Thrones",
+            "A Clash of Kings",
+            "A Storm of Swords",
+            "A Feast for Crows",
+            "A Dance with Dragons",
+            "The Winds of Winter",
+            "A Dream of Spring"
+        ]
+    },
+    {
+        "title": "Foundation Series",
+        "books": [
+            "Foundation",
+            "Foundation and Empire",
+            "Second Foundation"
+        ]
+    },
+    {
+        "title": "The Witcher",
+        "books": [
+            "Blood of Elves",
+            "Time of Contempt",
+            "Baptism of Fire",
+            "The Tower of the Swallow",
+            "The Lady of the Lake"
+        ]
+    },
+    {
+        "title": "The Hitchhiker's Guide to the Galaxy Series",
+        "books": [
+            "The Hitchhiker's Guide to the Galaxy",
+            "The Restaurant at the End of the Universe",
+            "Life, the Universe, and Everything",
+            "So Long, and Thanks for All the Fish",
+            "Mostly Harmless",
+            "And Another Thing..."
+        ]
+    }
+]
