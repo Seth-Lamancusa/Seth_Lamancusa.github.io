@@ -202,7 +202,7 @@ span.quote {
 .construction {
 	width: 200px;
 	height: 200px;
-	position: static;
+	position: relative;
 	left: 40%;
 	top: 125px;
 	transform: rotate(20deg);
