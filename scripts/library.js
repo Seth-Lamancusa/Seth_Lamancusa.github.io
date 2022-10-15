@@ -11,24 +11,19 @@ for (let i = 0; i < library.length; i++) {
     }
 }
 
-let unreadGenres = document.createElement("ul");
-let readGenres = document.createElement("ul");
+let unreadGenres = []
+let readGenres = []
 
-unreadGenres.classList.add("genres");
-readGenres.classList.add("genres");
+for (let i = 0; i < library.length; i++) {
+    if (library[i].timesRead > 0) {
+        if (library[i].genre in readGenres) {
 
-let genre;
-let genreTitle;
-let bookList;
-for (let i = 0; i < genreList.length; i++) {
-    genre = document.createElement("li");
-    genreTitle = document.createElement("p");
-    genreTitle.innerHTML = genreList[i];
-    genre.appendChild(genreTitle);
-    bookList = document.createElement("ul");
-    bookList.classList.add("books");
+        } else {
 
+        }
+    } else {
 
+    }
 }
 
 

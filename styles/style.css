@@ -131,7 +131,7 @@ table {
 
 /* End of CSS Reset */
 
-/* * {
+/* {
 	background-color: rgba(0, 255, 0, .1) !important;
 	border: 1px solid green !important;
 } */
@@ -195,8 +195,8 @@ p.sdate {
 
 span.quote {
 	font-style: italic;
-	font-size: 1.2em;
-	color: #555;
+	font-size: 1em;
+	color: #000;
 }
 
 .construction {
@@ -361,6 +361,16 @@ span.quote {
 	width: 100%;
 	height: 100vh;
 	overflow-x: hidden;
+}
+
+.page.two div {
+	overflow: hidden;
+}
+
+.page.two img {
+	display: block;
+	float: right;
+	height: 150px;
 }
 
 .page.four ul {
