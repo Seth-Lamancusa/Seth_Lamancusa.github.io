@@ -152,6 +152,24 @@ a:hover {
 	text-decoration: underline;
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 10px;
+	font-size: .875em;
+}
+
+th,
+td {
+	padding: 8px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
 h1 {
 	color: black;
 	font-size: xx-large;
@@ -363,6 +381,32 @@ span.quote {
 	overflow-x: hidden;
 }
 
+.imgcontainer {
+	padding: 5px;
+	color: black;
+	border: 1px solid #a2a9b1;
+	background-color: #f8f9fa;
+	font-size: .9em;
+	text-align: center;
+}
+
+.imgcontainer p {
+	margin: 0;
+	font-size: .875em;
+	text-align: center;
+}
+
+.imgcontainer img {
+	display: block;
+	margin: 0 auto;
+	width: 95%;
+}
+
+#matrix_con {
+	width: 20%;
+	float: right;
+}
+
 .page.two div {
 	overflow: hidden;
 }
@@ -373,7 +417,7 @@ span.quote {
 	height: 150px;
 }
 
-.page.four {
+.page.four #gr_columns {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
