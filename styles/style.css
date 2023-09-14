@@ -402,10 +402,18 @@ span.quote {
 	width: 95%;
 }
 
+.imgcontainer video {
+	display: block;
+	margin: 0 auto;
+	width: 95%;
+}
+
 #matrix_con {
 	width: 20%;
 	float: right;
 }
+
+/* Page 2 */
 
 .page.two div {
 	overflow: hidden;
@@ -417,11 +425,69 @@ span.quote {
 	height: 150px;
 }
 
+/* Page 3 */
+
+.page.three #body {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.page.three #body .imgcontainer {
+	margin: 10px;
+}
+
+#banana_con {
+	width: 10%;
+}
+
+#alex_con {
+	width: 20%;
+}
+
+#chess_con {
+	width: 30%;
+}
+
+#drum_con {
+	width: 25%;
+}
+
+#floating_con {
+	width: 25%;
+}
+
+#kalimba_con {
+	width: 25%;
+}
+
+#marimba_con {
+	width: 25%;
+}
+
+#paintings_con {
+	width: 25%;
+}
+
+#tryout_con {
+	width: 20%;
+}
+
+#undertale_con {
+	width: 20%;
+}
+
+/* Page 4 */
+
 .page.four #gr_columns {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
+
+
 
 .pages {
 	display: flex;
