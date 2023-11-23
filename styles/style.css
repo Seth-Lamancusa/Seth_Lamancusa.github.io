@@ -153,17 +153,19 @@ a:hover {
 }
 
 table {
-	width: 100%;
+	width: 60%;
 	border-collapse: collapse;
 	margin: 10px;
-	font-size: .875em;
+	font-size: .8em;
 }
 
 th,
 td {
-	padding: 8px;
 	text-align: left;
 	border: 1px solid #ddd;
+	white-space: nowrap;
+	width: 1%;
+	padding: 5px;
 }
 
 th {
@@ -415,19 +417,7 @@ span.quote {
 
 /* Page 2 */
 
-.page.two div {
-	overflow: hidden;
-}
-
-.page.two img {
-	display: block;
-	float: right;
-	height: 150px;
-}
-
-/* Page 3 */
-
-.page.three #body {
+.page.two #body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -435,7 +425,7 @@ span.quote {
 	align-items: center;
 }
 
-.page.three #body .imgcontainer {
+.page.two #body .imgcontainer {
 	margin: 10px;
 }
 
@@ -479,15 +469,13 @@ span.quote {
 	width: 20%;
 }
 
-/* Page 4 */
+/* Page 3 */
 
-.page.four #gr_columns {
+.page.three #gr_columns {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
-
-
 
 .pages {
 	display: flex;

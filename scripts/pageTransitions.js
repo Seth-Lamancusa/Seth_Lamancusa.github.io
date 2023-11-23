@@ -10,14 +10,11 @@ slide = (page) => {
         case 'article':
             t = 0;
             break;
-        case 'projects':
+        case 'gallery':
             t = 1;
             break;
-        case 'blog':
-            t = 2;
-            break;
         case 'library':
-            t = 3;
+            t = 2;
             break;
     }
     pages.forEach(
