@@ -156,7 +156,7 @@ table {
 	width: 60%;
 	border-collapse: collapse;
 	margin: 10px;
-	font-size: .8em;
+	font-size: .7em;
 }
 
 th,
@@ -203,8 +203,19 @@ p {
 #reflection {
 	font-size: .75em;
 	margin-left: 5%;
-	margin-right: 40%;
+	margin-right: 5%;
 }
+
+.cols {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.column {
+	flex: 1;
+	padding: 10px;
+}
+
 
 p.subtitle {
 	color: rgb(100, 100, 100);
